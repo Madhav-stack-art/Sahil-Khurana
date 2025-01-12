@@ -1,0 +1,881 @@
+<html><head><base href="./">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="developer, full stack, web development, portfolio">
+<meta name="author" content="Sahil Khurana">
+<title>Sahil Khurana - Associates - Shimla Properties - Best in JanakPuri</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  }
+
+  :root {
+    --primary: #EB5200;
+    --bg: linear-gradient(135deg, #1a1f3c 0%, #0a0f2c 100%);
+    --text: #a0a0a0;
+    --heading: #ffffff;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem 0;
+    background: rgba(26, 31, 60, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-radius: 30px;
+    width: calc(100% - 4rem);
+    max-width: 1200px;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-social-icons {
+    display: flex;
+    gap: 1.5rem;
+    position: absolute;
+    right: 0;
+  }
+
+  .nav-social-icon {
+    color: var(--text);
+    font-size: 1.2rem;
+    transition: all 0.3s;
+  }
+
+  .nav-social-icon:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .nav-link {
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-link:hover {
+    color: var(--primary);
+    transform: scale(1.05);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Mobile Menu Styles */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .mobile-menu-btn:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+    }
+
+    .nav-content {
+      justify-content: space-between;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      display: flex !important;
+      z-index: 100;
+      padding-top: 4rem;
+      border-radius: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .nav-links.active {
+      transform: translateX(0);
+    }
+
+    .nav-link {
+      background: #1a1a1a;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      width: 250px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--heading);
+      margin: 0.5rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link:hover {
+      background: #2a2a2a;
+      transform: scale(1.05);
+    }
+
+    .nav-social-icons {
+      z-index: 102;
+    }
+
+    .navbar {
+      top: 0.5rem;
+      width: calc(100% - 2rem);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 30px;
+    }
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 0 6rem; 
+    display: flex;
+    align-items: center;
+  }
+
+  .hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  .hero-image {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-image:hover img {
+    transform: scale(1.06);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--heading);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--primary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .social-icon {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .social-icon:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: rgba(235, 82, 0, 0.1);
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 8rem 0 4rem;
+    }
+    
+    .hero .container {
+      padding: 0 1.5rem;
+      flex-direction: column;
+      max-width: 100%;
+    }
+    
+    .hero-description {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+    
+    .hero-title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    color: var(--heading);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--text);
+    opacity: 0.3;
+  }
+
+  .property-video-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    aspect-ratio: 9/16;
+  }
+
+  .property-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .project-card {
+    display: none;
+  }
+
+  /* Add new footer styles */
+  .footer {
+    padding: 4rem 0;
+    background: rgba(26, 31, 60, 0.3);
+    backdrop-filter: blur(10px);
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+
+  .footer-section h3 {
+    color: var(--heading);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-section p {
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-links a {
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+    padding-left: 0.5rem;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .footer-social a {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .footer-social a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Add new contact form styles */
+  .contact-form {
+    background: rgba(26, 31, 60, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    color: var(--heading);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: var(--heading);
+    font-size: 1rem;
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .submit-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(235, 82, 0, 0.3);
+  }
+
+  .form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    display: none;
+  }
+
+  .form-message.success {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    display: block;
+  }
+
+  .form-message.error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+    display: block;
+  }
+  
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 37%, 
+      rgba(255, 255, 255, 0.05) 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+
+  .skeleton-text {
+    height: 1em;
+    margin: 0.5em 0;
+    border-radius: 4px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 37%, 
+      rgba(255, 255, 255, 0.05) 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .property-video-container {
+    max-width: 100%;
+    aspect-ratio: 9/16;
+  }
+
+  .load-more {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.8rem 1.8rem;
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .load-more:hover {
+    background: rgba(235, 82, 0, 0.1);
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Properties</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-social-icons">
+        <!-- <a href="https://discord.com/users/__madhav__khurana__" class="nav-social-icon" target="_blank">
+          <i class="fab fa-discord"></i>
+        </a> -->
+        <!-- <a href="https://github.com/Madhav-stack-art" class="nav-social-icon" target="_blank">
+          <i class="fab fa-github"></i>
+        </a> -->
+        <a href="https://www.instagram.com/_madhav_khurana__/profilecard/?igshid=MWEwN2dndW9mdjE1cw==" class="nav-social-icon" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/919910115710" class="nav-social-icon" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content" data-original="
+        <h1 class='hero-title'>Hi, I'm Sahil Khurana</h1>
+        <h2 class='hero-subtitle'>Owner of Shimla Properties</h2>
+        <p class='hero-subtitle'>Located in NEW DELHI NEAR Paudi WALA GURUDWARA AND ATJ3PQ+H92, New Mahavir Nagar, Tilak Nagar, New Delhi, Delhi, 110018</p>
+        <p class='hero-description'>
+          I specialize in delivering exceptional business solutions. Currently focused on building value-driven 
+          partnerships and fostering growth through collaborative relationships.
+        </p>
+        <a href='https://wa.me/919910115710' class='btn'>Get In Touch</a>
+      ">
+        <div class="skeleton skeleton-text" style="width: 60%; height: 3em; margin: 0 auto;"></div>
+        <div class="skeleton skeleton-text" style="width: 40%; height: 2em; margin: 0 auto;"></div>
+        <div class="skeleton skeleton-text" style="width: 80%; margin: 0 auto;"></div>
+        <div class="skeleton skeleton-text" style="width: 70%; margin: 0 auto;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      Hi, I'm Sahil Khurana! I'm a dedicated business associate with a passion for creating meaningful partnerships. With a focus on strategic collaboration and innovative solutions, I help organizations achieve their goals through effective relationship building. When I'm not working with clients, I'm expanding my network and staying current with industry trends. Join me in exploring opportunities for mutual growth and success!
+    </div>
+  </section>
+
+  <section id="work" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Properties</h2>
+      <div class="projects-grid">
+        <div class="property-video-container">
+          <video controls class="property-video">
+            <source src="https://example.com/property1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="property-video-container">
+          <video controls class="property-video">
+            <source src="https://example.com/property2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="property-video-container hidden">
+          <video controls class="property-video">
+            <source src="https://example.com/property3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="property-video-container hidden">
+          <video controls class="property-video">
+            <source src="https://example.com/property4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="property-video-container hidden">
+          <video controls class="property-video">
+            <source src="https://example.com/property5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="property-video-container hidden">
+          <video controls class="property-video">
+            <source src="https://example.com/property6.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <button class="load-more">Load More</button>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="form-message"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Me</h3>
+          <p>Owner of Shimla Properties, located in New Delhi. Dedicated to providing exceptional real estate solutions and building valuable client relationships.</p>
+          <div class="footer-social">
+            <a href="https://github.com/Madhav-stack-art" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/madhav_khurana_/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://discord.com/users/__madhav__khurana__" target="_blank">
+              <i class="fab fa-discord"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Properties</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://blog.madhav.me">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:madhavkhurana0509@gmail.com">sahilkhurana0509@gmail.com</a></li>
+            <li><a href="https://wa.me/919910115710">WhatsApp</a></li>
+            <li><a href="https://discord.com/users/__madhav__khurana__">Discord</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&#xa9; 2023 Sahil Khurana. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroContent = document.querySelector('.hero-content');
+      
+      // Create skeleton content 
+      const originalHeroContent = `
+        <h1 class="hero-title">Hi, I'm Sahil Khurana</h1>
+        <h2 class="hero-subtitle">Owner of Shimla Properties</h2>
+        <p class="hero-subtitle">Located in NEW DELHI NEAR Paudi WALA GURUDWARA AND ATJ3PQ+H92, New Mahavir Nagar, Tilak Nagar, New Delhi, Delhi, 110018</p>
+        <p class="hero-description">
+          I specialize in delivering exceptional business solutions. Currently focused on building value-driven 
+          partnerships and fostering growth through collaborative relationships.
+        </p>
+        <a href="https://wa.me/919910115710" class="btn">Get In Touch</a>
+      `;
+
+      // Hide actual content temporarily
+      heroContent.setAttribute('data-original', originalHeroContent);
+      
+      // Remove skeleton after content loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          heroContent.innerHTML = `
+            <h1 class='hero-title'>Hi, I'm Sahil Khurana</h1>
+            <h2 class='hero-subtitle'>Owner of Shimla Properties</h2>
+            <p class='hero-subtitle'>Located in NEW DELHI NEAR Paudi WALA GURUDWARA AND ATJ3PQ+H92, New Mahavir Nagar, Tilak Nagar, New Delhi, Delhi, 110018</p>
+            <p class='hero-description'>
+              I specialize in delivering exceptional business solutions. Currently focused on building value-driven 
+              partnerships and fostering growth through collaborative relationships.
+            </p>
+            <a href='https://wa.me/919910115710' class='btn'>Get In Touch</a>
+          `;
+        }, 1500);
+      });
+    });
+  </script>
+  <script>document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  const icon = mobileMenuBtn.querySelector('i');
+  if (icon.classList.contains('fa-bars')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    const icon = mobileMenuBtn.querySelector('i');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  });
+});
+const contactForm = document.getElementById('contact-form');
+const formMessage = document.querySelector('.form-message');
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    subject: document.getElementById('subject').value,
+    message: document.getElementById('message').value
+  };
+
+  // Format WhatsApp message
+  const whatsappMessage = `*New Contact Form Message*%0A%0A` +
+    `*Name:* ${formData.name}%0A` +
+    `*Email:* ${formData.email}%0A` +
+    `*Subject:* ${formData.subject}%0A%0A` +
+    `*Message:*%0A${formData.message}`;
+
+  // Create WhatsApp link with formatted message
+  const whatsappLink = `https://wa.me/919910115710?text=${whatsappMessage}`;
+  
+  // Open WhatsApp in new tab
+  window.open(whatsappLink, '_blank');
+  
+  // Show success message
+  formMessage.textContent = 'Redirecting to WhatsApp...';
+  formMessage.className = 'form-message success';
+  contactForm.reset();
+});
+</script>
+<script>
+  const loadMoreBtn = document.querySelector('.load-more');
+  const hiddenVideos = document.querySelectorAll('.property-video-container.hidden');
+  let currentIndex = 0;
+
+  loadMoreBtn.addEventListener('click', () => {
+    // Show next 4 videos
+    for(let i = currentIndex; i < currentIndex + 4 && i < hiddenVideos.length; i++) {
+      hiddenVideos[i].classList.remove('hidden');
+    }
+    
+    currentIndex += 4;
+    
+    // Hide button if no more videos
+    if(currentIndex >= hiddenVideos.length) {
+      loadMoreBtn.style.display = 'none';
+    }
+  });
+</script>
+</body></html>
